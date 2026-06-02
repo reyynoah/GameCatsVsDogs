@@ -10,6 +10,7 @@ TagManager:
   - Ikan
   - Tulang
   - Anjing
+  - DeathZone
   layers:
   - Default
   - TransparentFX

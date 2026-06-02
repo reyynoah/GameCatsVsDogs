@@ -1313,6 +1313,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &519755178
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 519755179}
+  m_Layer: 0
+  m_Name: SpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &519755179
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519755178}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -8.57, y: -3.04, z: 0}
+  m_LocalScale: {x: 0.780479, y: 0.780479, z: 0.780479}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &532673063
 GameObject:
   m_ObjectHideFlags: 0
@@ -2750,9 +2781,10 @@ MonoBehaviour:
   - {fileID: 1252389642}
   - {fileID: 1857404418}
   - {fileID: 1727377475}
-  batasJatuh: -7
+  batasJatuh: -4
   panelMenang: {fileID: 219260205}
   teksSkor: {fileID: 658028138}
+  titikRespawn: {fileID: 519755179}
 --- !u!50 &1796653175
 Rigidbody2D:
   serializedVersion: 5
@@ -3536,3 +3568,4 @@ SceneRoots:
   - {fileID: 1252389644}
   - {fileID: 1857404420}
   - {fileID: 1727377477}
+  - {fileID: 519755179}

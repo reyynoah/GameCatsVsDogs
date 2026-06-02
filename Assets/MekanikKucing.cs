@@ -20,12 +20,14 @@ public class KucingController : MonoBehaviour
 
     [Header("Pengaturan UI & Objek")]
     public GameObject[] ikonNyawa;
-    public float batasJatuh = -7f;
+    public float batasJatuh = -2f;
     
     // TAMBAHAN BARU UNTUK UI MENANG & SKOR
     [Header("Menu Menang & Skor")]
     public GameObject panelMenang; 
     public TextMeshProUGUI teksSkor; // Slot buat masukin Teks UI Skor dari Hierarchy
+
+    public Transform titikRespawn;
 
     void Start()
     {
@@ -59,9 +61,10 @@ public class KucingController : MonoBehaviour
             isGrounded = false;
         }
 
+        // PERUBAHAN DI SINI: Panggil fungsi Respawn saat jatuh
         if (transform.position.y < batasJatuh)
         {
-            RestartGame();
+            KucingJatuh();
         }
     }
 
@@ -117,9 +120,7 @@ public class KucingController : MonoBehaviour
             if (punyaTulang)
             {
                 Debug.Log("LEVEL SELESAI! MENANG!");
-                // 1. Munculin UI Panel Menang
                 panelMenang.SetActive(true); 
-                // 2. Bikin waktu di game berhenti (pause), biar kucing ga bisa gerak lagi
                 Time.timeScale = 0f; 
             }
             else
@@ -140,17 +141,43 @@ public class KucingController : MonoBehaviour
         }
     }
 
+    // FUNGSI BARU: Mengatur logika saat kucing jatuh jurang
+    void KucingJatuh()
+    {
+        nyawa--; // Kurangi nyawa
+        UpdateUINyawa(); // Update tampilan UI Jantung
+
+        if (nyawa <= 0)
+        {
+            // Jika nyawa habis, game over dan ulang scene
+            RestartGame();
+        }
+        else
+        {
+            // Jika masih ada nyawa, teleport ke titik respawn
+            if (titikRespawn != null)
+            {
+                transform.position = titikRespawn.position;
+                
+                // PENTING: Reset kecepatan jadi 0 agar kucing tidak langsung melesat jatuh lagi saat respawn
+                rb.linearVelocity = Vector2.zero; 
+            }
+            else
+            {
+                Debug.LogWarning("Titik Respawn belum dimasukkan ke Inspector!");
+                RestartGame(); // Fallback jika kamu lupa pasang objek respawn
+            }
+        }
+    }
+
     void RestartGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
-    // TAMBAHAN FUNGSI BUAT TOMBOL BALIK KE MENU AWAL
     public void TombolKembaliKeSampleScene()
     {
-        // Balikin waktu jadi normal lagi sebelum pindah scene
         Time.timeScale = 1f; 
-        // Ganti "SampleScene" sesuai dengan nama scene level kamu kalau berbeda
         SceneManager.LoadScene("SampleScene"); 
     }
 }
