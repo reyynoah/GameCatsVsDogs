@@ -1,3 +1,3 @@
-## Screenshot
+## MainMenu
 
-![Gameplay](images/MainMenu.png)
+![MainMenu](images/MainMenu.png)
