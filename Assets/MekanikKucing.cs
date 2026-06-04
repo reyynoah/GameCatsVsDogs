@@ -22,12 +22,14 @@ public class KucingController : MonoBehaviour
     public GameObject[] ikonNyawa;
     public float batasJatuh = -2f;
     
-    // TAMBAHAN BARU UNTUK UI MENANG & SKOR
     [Header("Menu Menang & Skor")]
     public GameObject panelMenang; 
     public TextMeshProUGUI teksSkor; // Slot buat masukin Teks UI Skor dari Hierarchy
-
     public Transform titikRespawn;
+
+    // --- TAMBAHAN LANGKAH 3 (UNLOCK LEVEL) ---
+    [Header("Buka Level Selanjutnya")]
+    public string namaKunciBukaLevel; // Ketik "BukaLevel2" atau "BukaLevel3" di Inspector Unity nanti
 
     void Start()
     {
@@ -61,7 +63,7 @@ public class KucingController : MonoBehaviour
             isGrounded = false;
         }
 
-        // PERUBAHAN DI SINI: Panggil fungsi Respawn saat jatuh
+        // Panggil fungsi Respawn saat jatuh
         if (transform.position.y < batasJatuh)
         {
             KucingJatuh();
@@ -120,6 +122,16 @@ public class KucingController : MonoBehaviour
             if (punyaTulang)
             {
                 Debug.Log("LEVEL SELESAI! MENANG!");
+                
+                // --- KODE LANGKAH 3 (MEMBERIKAN KUNCI KE PLAYERPREFS) ---
+                // Menyimpan angka 1 ke nama kunci yang sudah kamu ketik di Inspector
+                if (!string.IsNullOrEmpty(namaKunciBukaLevel))
+                {
+                    PlayerPrefs.SetInt(namaKunciBukaLevel, 1);
+                    PlayerPrefs.Save();
+                }
+                // ---------------------------------------------------------
+
                 panelMenang.SetActive(true); 
                 Time.timeScale = 0f; 
             }
@@ -141,31 +153,26 @@ public class KucingController : MonoBehaviour
         }
     }
 
-    // FUNGSI BARU: Mengatur logika saat kucing jatuh jurang
     void KucingJatuh()
     {
-        nyawa--; // Kurangi nyawa
-        UpdateUINyawa(); // Update tampilan UI Jantung
+        nyawa--; 
+        UpdateUINyawa(); 
 
         if (nyawa <= 0)
         {
-            // Jika nyawa habis, game over dan ulang scene
             RestartGame();
         }
         else
         {
-            // Jika masih ada nyawa, teleport ke titik respawn
             if (titikRespawn != null)
             {
                 transform.position = titikRespawn.position;
-                
-                // PENTING: Reset kecepatan jadi 0 agar kucing tidak langsung melesat jatuh lagi saat respawn
                 rb.linearVelocity = Vector2.zero; 
             }
             else
             {
                 Debug.LogWarning("Titik Respawn belum dimasukkan ke Inspector!");
-                RestartGame(); // Fallback jika kamu lupa pasang objek respawn
+                RestartGame(); 
             }
         }
     }

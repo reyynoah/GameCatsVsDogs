@@ -585,6 +585,7 @@ MonoBehaviour:
   panelMenang: {fileID: 2064123324}
   teksSkor: {fileID: 886688428}
   titikRespawn: {fileID: 2091676847}
+  namaKunciBukaLevel: BukaLevel2
 --- !u!1 &326062206
 GameObject:
   m_ObjectHideFlags: 0

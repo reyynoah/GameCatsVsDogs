@@ -131,6 +131,7 @@ GameObject:
   - component: {fileID: 41980267}
   - component: {fileID: 41980266}
   - component: {fileID: 41980265}
+  - component: {fileID: 41980268}
   m_Layer: 5
   m_Name: level3
   m_TagString: Untagged
@@ -196,7 +197,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 41980266}
   m_OnClick:
     m_PersistentCalls:
@@ -251,6 +252,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 41980263}
   m_CullTransparentMesh: 1
+--- !u!114 &41980268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 41980263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e550c51b8e41d94a8baa44a37393f69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::KunciLevel
+  namaKunci: BukaLevel3
 --- !u!1 &51436670
 GameObject:
   m_ObjectHideFlags: 0
@@ -1398,6 +1412,7 @@ GameObject:
   - component: {fileID: 733263236}
   - component: {fileID: 733263235}
   - component: {fileID: 733263234}
+  - component: {fileID: 733263237}
   m_Layer: 5
   m_Name: level2
   m_TagString: Untagged
@@ -1463,7 +1478,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 733263235}
   m_OnClick:
     m_PersistentCalls:
@@ -1518,6 +1533,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 733263232}
   m_CullTransparentMesh: 1
+--- !u!114 &733263237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 733263232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e550c51b8e41d94a8baa44a37393f69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::KunciLevel
+  namaKunci: BukaLevel2
 --- !u!1 &1065350880
 GameObject:
   m_ObjectHideFlags: 0

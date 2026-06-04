@@ -3110,6 +3110,7 @@ MonoBehaviour:
   panelMenang: {fileID: 989955002}
   teksSkor: {fileID: 990508406}
   titikRespawn: {fileID: 1290931348}
+  namaKunciBukaLevel: BukaLevel3
 --- !u!61 &1735275917
 BoxCollider2D:
   m_ObjectHideFlags: 0
